@@ -31,7 +31,7 @@ const LichChieuCumRap = ({ maHeThongRap }) => {
           return {
             // thuộc tính label tạo nội dung cho các nút tab
             label: (
-              <div className="text-left space-y-1">
+              <div className="text-left space-y-1 w-80">
                 <h4 className="truncate text-lime-500 uppercase font-medium ">
                   {item.tenCumRap}
                 </h4>
@@ -51,33 +51,37 @@ const LichChieuCumRap = ({ maHeThongRap }) => {
                 {item.danhSachPhim.map((item, index) => {
                   return (
                     <div className="flex p-5">
-                      <div className="col_left mr-4">
-                        <img className="w-24" src={item.hinhAnh} alt="" />
+                      <div className="w-2/12">
+                        <img
+                          className="object-cover h-56 border border-black shadow-md"
+                          src={item.hinhAnh}
+                          alt=""
+                        />
                       </div>
-                      <div className="col_right">
+                      <div className="w-10/12 px-5">
                         <div>
-                          <h3 className="font-medium text-lg">
+                          <h3 className="mb-3 text-lg font-bold">
                             <span className="text-white p-1 bg-orange-600 rounded mr-2">
                               C18
                             </span>
                             {item.tenPhim}
                           </h3>
                         </div>
-                        <div className="grid grid-cols-2 gap-5 mt-3">
+                        <div className="grid grid-cols-2 gap-5">
                           {item.lstLichChieuTheoPhim
                             .slice(0, 4)
                             .map((item, index) => {
                               return (
-                                <div className="p-3 border border-gray-400 rounded space-x-2 text-base">
-                                  <span className="text-lime-600 font-medium">
+                                <div className="py-2 text-center duration-300 bg-gray-100 border border-gray-300 rounded-md cursor-pointer hover:bg-gray-200">
+                                  <span className="mr-2 font-medium text-lime-600">
                                     {moment(item.ngayChieuGioChieu).format(
                                       "DD-MM-YYYY"
                                     )}
                                   </span>
                                   <span>~</span>
-                                  <span className="text-orange-600 font-medium">
+                                  <span className="ml-2 text-orange-600 font-medium">
                                     {moment(item.ngayChieuGioChieu).format(
-                                      "LT"
+                                      "hh:mm"
                                     )}
                                   </span>
                                 </div>
