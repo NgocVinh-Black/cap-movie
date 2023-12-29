@@ -9,6 +9,8 @@ import AdminTemplate from "./templates/AdminTemplate/AdminTemplate";
 import MovieManager from "./pages/MovieManager/MovieManager";
 import UserManager from "./pages/UserManager/UserManager";
 import AddMovie from "./pages/AddMovie/AddMovie";
+import Register from "./pages/Register/Register";
+import Detail from "./pages/Detail/Detail";
 
 function App() {
   return (
@@ -23,6 +25,8 @@ function App() {
           <Route path="add-movie" element={<AddMovie />} />
         </Route>
         <Route element={<Login />} path="/login"></Route>
+        <Route element={<Register />} path="/register"></Route>
+        <Route element={<Detail />} path="/detail/:maPhim"></Route>
       </Routes>
     </>
   );

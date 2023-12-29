@@ -1,0 +1,33 @@
+@import url(https://fonts.googleapis.com/css?family=Krona+One);
+/* body {
+  height: 100vh;
+  /* display: flex; */
+  /* background-color: #101010 */
+/* } */ */
+
+h1 {
+  font-weight:450;
+}
+.container {
+  background-color:white
+}
+.float-label-input {
+    margin: 32px 0;     
+ }
+
+.float-label-input:focus-within label,
+  .float-label-input input:not(:placeholder-shown) + label {
+    transform: translateY(-1.5rem) scale(0.75);
+    background-color: white;
+}
+
+.register{
+    background: url(./image/bgRE.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    min-height: 100vh;
+    background-position: center;
+}
+.MuiSvgIcon-root{
+  color: white !important;
+}

@@ -53,7 +53,11 @@ const ListMovie = () => {
                 to={`/detail/${item.maPhim}`}
                 className="inline-block w-full mt-3"
               >
-                <Button type="primary" danger className="w-full h-10 text-lg">
+                <Button
+                  type="primary"
+                  danger
+                  className="w-full h-10 text-lg"
+                >
                   Xem Ngay
                 </Button>
               </NavLink>
