@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { Space, Table, Tag } from "antd";
 import { userServ } from "../../services/userServ";
-import { Button, Modal } from "antd";
+import AddUser from "../AddUser/AddUser";
+import { NavLink } from "react-router-dom";
 const UserManager = () => {
   const columns = [
     {
@@ -43,9 +44,11 @@ const UserManager = () => {
       dataIndex: "thaoTac",
       render: (_, record) => (
         <div className="space-x-2">
-          <button>
-            <i className="px-3 py-2 bg-green-600 rounded-md fa-solid fa-pen" />
-          </button>
+          <NavLink to={`/admin/add-user`}>
+            <button>
+              <i className="px-3 py-2 bg-green-600 rounded-md fa-solid fa-pen" />
+            </button>
+          </NavLink>
           <button
             onClick={() => {
               userServ
@@ -75,31 +78,13 @@ const UserManager = () => {
       })
       .catch();
   }, []);
-  const [isModalOpen, setIsModalOpen] = useState(false);
-  const showModal = () => {
-    setIsModalOpen(true);
-  };
-  const handleOk = () => {
-    setIsModalOpen(false);
-  };
-  const handleCancel = () => {
-    setIsModalOpen(false);
-  };
   return (
     <div>
-      <Button type="primary" onClick={showModal}>
-        Open Modal
-      </Button>
-      <Modal
-        title="Basic Modal"
-        open={isModalOpen}
-        onOk={handleOk}
-        onCancel={handleCancel}
-      >
-        <p>Some contents...</p>
-        <p>Some contents...</p>
-        <p>Some contents...</p>
-      </Modal>
+      <NavLink to={`/admin/add-user`}>
+        <button className="bg-blue-500 px-4 py-2 rounded-md font-medium">
+          Thêm người dùng
+        </button>
+      </NavLink>
       <h2 className="font-bold text-2xl mb-5">Danh sách người dùng</h2>
       <Table
         columns={columns}

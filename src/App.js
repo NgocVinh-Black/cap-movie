@@ -11,6 +11,7 @@ import UserManager from "./pages/UserManager/UserManager";
 import AddMovie from "./pages/AddMovie/AddMovie";
 import Register from "./pages/Register/Register";
 import Detail from "./pages/Detail/Detail";
+import AddUser from "./pages/AddUser/AddUser";
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
           <Route index element={<MovieManager />} />
           <Route path="manager-user" element={<UserManager />} />
           <Route path="add-movie" element={<AddMovie />} />
+          <Route path="add-user" element={<AddUser />} />
         </Route>
         <Route element={<Login />} path="/login"></Route>
         <Route element={<Register />} path="/register"></Route>
