@@ -9,6 +9,11 @@ import AdminTemplate from "./templates/AdminTemplate/AdminTemplate";
 import MovieManager from "./pages/MovieManager/MovieManager";
 import UserManager from "./pages/UserManager/UserManager";
 import AddMovie from "./pages/AddMovie/AddMovie";
+import Tickets from "./pages/Booking/Tickets";
+// import Checkout from "./pages/CheckOut/Checkout";
+import BookTickets from "./pages/BookTickets/BookTickets";
+import CheckoutTemplate from "./templates/CheckoutTemplate/CheckoutTemplate";
+// import Booking from "./pages/Booking/Booking";
 
 function App() {
   return (
@@ -23,6 +28,11 @@ function App() {
           <Route path="add-movie" element={<AddMovie />} />
         </Route>
         <Route element={<Login />} path="/login"></Route>
+        <Route element={<CheckoutTemplate />} path="/checkout">
+          <Route element={<BookTickets />} path=":id" />
+        </Route>
+        <Route element={<Tickets />} path="/tickets/:showtimeId" />
+        {/* <Route element={<Checkout />} path="/checkout/:id" /> */}
       </Routes>
     </>
   );
