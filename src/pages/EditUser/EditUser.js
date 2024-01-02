@@ -1,23 +1,38 @@
 import React, { useEffect, useState } from "react";
-import { NavLink, useNavigate } from "react-router-dom";
 import { useFormik } from "formik";
+import { NavLink, useNavigate, useParams } from "react-router-dom";
 import { userServ } from "../../services/userServ";
 
-const AddUser = () => {
+const EditUser = () => {
+  const { taiKhoan } = useParams();
+  const [editUser, setEditUser] = useState([]);
+  useEffect(() => {
+    userServ
+      .getInfoUser(taiKhoan)
+      .then((res) => {
+        setEditUser(res.data.content);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }, []);
   const navigate = useNavigate();
   const formik = useFormik({
+    enableReinitialize: true,
     initialValues: {
-      taiKhoan: "",
-      matKhau: "",
-      email: "",
-      soDt: "",
-      maLoaiNguoiDung: "",
-      hoTen: "",
+      taiKhoan: editUser.taiKhoan,
+      matKhau: editUser.matKhau,
+      email: editUser.email,
+      soDt: editUser.soDT,
+      maLoaiNguoiDung: editUser.maLoaiNguoiDung,
+      hoTen: editUser.hoTen,
+      maNhom: editUser.maNhom,
     },
     onSubmit: (values) => {
       userServ
-        .addUser(values)
+        .editUser(values)
         .then((res) => {
+          console.log(res);
           setTimeout(() => {
             navigate("/admin/manager-user");
           });
@@ -35,10 +50,9 @@ const AddUser = () => {
     setFieldValue,
     reset,
   } = formik;
-
   return (
     <div className="px-20">
-      <h2 className="font-bold text-2xl mb-5">Thêm người dùng</h2>
+      <h2 className="font-bold text-2xl mb-5">Thay đổi thông tin người dùng</h2>
       <form onSubmit={handleSubmit}>
         <div className="grid grid-cols-2 gap-10">
           {/* Tài khoản */}
@@ -53,10 +67,11 @@ const AddUser = () => {
               type="text"
               name="taiKhoan"
               id="taiKhoan"
-              className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 "
+              className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 btnEdit"
               onChange={handleChange}
               onBlur={handleBlur}
               value={values.taiKhoan}
+              readOnly
             />
           </div>
           {/* Email */}
@@ -187,8 +202,8 @@ const AddUser = () => {
             </NavLink>
           </div>
           <div>
-            <button className="bg-blue-500 px-4 py-2 rounded-md font-medium">
-              Thêm
+            <button className="bg-green-500 px-4 py-2 rounded-md font-medium">
+              Lưu
             </button>
           </div>
         </div>
@@ -197,4 +212,4 @@ const AddUser = () => {
   );
 };
 
-export default AddUser;
+export default EditUser;

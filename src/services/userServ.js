@@ -13,6 +13,14 @@ export const userServ = {
     );
   },
   addUser: (data) => {
-    return https.post("/api/QuanLyNguoiDung/ThemNguoiDung",data);
+    return https.post("/api/QuanLyNguoiDung/ThemNguoiDung", data);
+  },
+  getInfoUser: (taiKhoan) => {
+    return https.post(
+      `/api/QuanLyNguoiDung/LayThongTinNguoiDung?taiKhoan=${taiKhoan}`
+    );
+  },
+  editUser: (data) => {
+    return https.post("/api/QuanLyNguoiDung/CapNhatThongTinNguoiDung", data);
   },
 };

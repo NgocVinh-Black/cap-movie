@@ -204,7 +204,6 @@ const Detail = () => {
           </div>
         </div>
       </div>
-
       <LichChieuRap />
       <Footer />
     </div>

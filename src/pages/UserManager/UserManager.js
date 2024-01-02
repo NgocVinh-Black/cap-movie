@@ -41,14 +41,16 @@ const UserManager = () => {
     {
       title: "Thao tác",
       key: "thaoTac",
-      dataIndex: "thaoTac",
-      render: (_, record) => (
+      dataIndex: "taiKhoan",
+      render: (text, record) => (
         <div className="space-x-2">
-          <NavLink to={`/admin/add-user`}>
+          {/* Sửa */}
+          <NavLink to={`/admin/edit-user/${text}`}>
             <button>
               <i className="px-3 py-2 bg-green-600 rounded-md fa-solid fa-pen" />
             </button>
           </NavLink>
+          {/* Xóa */}
           <button
             onClick={() => {
               userServ
