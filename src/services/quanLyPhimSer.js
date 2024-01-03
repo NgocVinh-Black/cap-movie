@@ -16,4 +16,7 @@ export const quanLyPhimSer = {
   addMovie: (data) => {
     return https.post("/api/QuanLyPhim/ThemPhimUploadHinh", data);
   },
+  getInfoMovie: (maPhim) => {
+    return https.get(`/api/QuanLyPhim/LayThongTinPhim?MaPhim=${maPhim}`);
+  },
 };
