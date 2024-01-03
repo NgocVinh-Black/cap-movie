@@ -3,6 +3,8 @@ import { Tabs } from "antd";
 import { quanLyRapSer } from "../../services/quanLyRapSer";
 import "./lichChieuCumRap.css";
 import moment from "moment";
+import ButtonTime from "../../components/ButtonTime/ButtonTime";
+import { Link } from "react-router-dom";
 const LichChieuCumRap = ({ maHeThongRap }) => {
   const [cumRap, setCumRap] = useState([]);
   useEffect(() => {
@@ -70,23 +72,13 @@ const LichChieuCumRap = ({ maHeThongRap }) => {
                         <div className="grid grid-cols-2 gap-5">
                           {item.lstLichChieuTheoPhim
                             .slice(0, 4)
-                            .map((item, index) => {
-                              return (
-                                <div className="py-2 text-center duration-300 bg-gray-100 border border-gray-300 rounded-md cursor-pointer hover:bg-gray-200">
-                                  <span className="mr-2 font-medium text-lime-600">
-                                    {moment(item.ngayChieuGioChieu).format(
-                                      "DD-MM-YYYY"
-                                    )}
-                                  </span>
-                                  <span>~</span>
-                                  <span className="ml-2 text-orange-600 font-medium">
-                                    {moment(item.ngayChieuGioChieu).format(
-                                      "hh:mm"
-                                    )}
-                                  </span>
-                                </div>
-                              );
-                            })}
+                            .map((movieTime, index) => (
+                              <div key={index} className="m-0 mr-4 mb-4">
+                                <Link to={`tickets/${movieTime.maLichChieu}`}>
+                                  <ButtonTime movieTime={movieTime} />
+                                </Link>
+                              </div>
+                            ))}
                         </div>
                       </div>
                     </div>
