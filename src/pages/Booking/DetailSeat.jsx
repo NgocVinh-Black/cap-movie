@@ -78,13 +78,11 @@ const DetailSeat = ({ infoCinema }) => {
       </div>
       <div className="detailticketsBtn">
         <Button
-          style={{ padding: "13px 0", marginTop: "-2px" }}
-          type="primary"
-          block
+          className="w-full bg-red-500 text-white font-bold rounded"
           loading={isLoading}
           onClick={handleBookTickets}
         >
-          Đặt vé
+          <span className="inline-block align-middle">ĐẶT VÉ</span>
         </Button>
       </div>
     </div>

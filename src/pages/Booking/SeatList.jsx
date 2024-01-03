@@ -1,16 +1,23 @@
 import React from "react";
-import style from "./SeatList.scss";
+import "./SeatList.scss";
 import SeatItem from "./SeatItem";
 import { useTicketContext } from "./TicketsContext";
 
 export default function SeatList({ seatList }) {
-  const { selectSeats, handleSelected } = useTicketContext();
+  const context = useTicketContext();
+
+  // Check if the context is available
+  if (!context) {
+    return null; // or handle loading state
+  }
+
+  const { selectSeats, handleSelected } = context;
 
   return (
-    <div className={style.seatlist}>
+    <div className="seatlist">
       <div className="max-w-md mx-auto">
-        <h6 className={style.screen}>MÀN HÌNH</h6>
-        <div className={style.seatlistContent}>
+        <h6 className="screen">MÀN HÌNH</h6>
+        <div className="seatlistContent">
           {seatList?.map((seat) => {
             const isSelected = selectSeats.find(
               (item) => item.maGhe === seat.maGhe
