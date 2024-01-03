@@ -3,6 +3,7 @@ import { Space, Table, Tag } from "antd";
 import { userServ } from "../../services/userServ";
 import AddUser from "../AddUser/AddUser";
 import { NavLink } from "react-router-dom";
+import Search from "../Search/Search";
 const UserManager = () => {
   const columns = [
     {
@@ -80,17 +81,24 @@ const UserManager = () => {
       })
       .catch();
   }, []);
+  const [resFind, setResFind] = useState([]);
   return (
     <div>
+      {/* Add */}
       <NavLink to={`/admin/add-user`}>
         <button className="bg-blue-500 px-4 py-2 rounded-md font-medium">
           Thêm người dùng
         </button>
       </NavLink>
+      {/* Find */}
+      <div className="mt-3 mb-3">
+        <Search setResFind={setResFind} />
+      </div>
+      {/* Table */}
       <h2 className="font-bold text-2xl mb-5">Danh sách người dùng</h2>
       <Table
         columns={columns}
-        dataSource={listUser}
+        dataSource={resFind.length === 0 ? listUser : resFind}
         pagination={{
           pageSize: 10,
         }}

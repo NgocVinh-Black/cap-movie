@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
 import { useFormik } from "formik";
 import { userServ } from "../../services/userServ";
-
+import { validationUser } from "../../utils/validationUser";
 const AddUser = () => {
   const navigate = useNavigate();
   const formik = useFormik({
@@ -13,6 +13,7 @@ const AddUser = () => {
       soDt: "",
       maLoaiNguoiDung: "",
       hoTen: "",
+      maNhom: "GP08",
     },
     onSubmit: (values) => {
       userServ
@@ -24,6 +25,7 @@ const AddUser = () => {
         })
         .catch((err) => {});
     },
+    validationSchema: validationUser,
   });
   const {
     handleChange,
@@ -33,7 +35,6 @@ const AddUser = () => {
     errors,
     touched,
     setFieldValue,
-    reset,
   } = formik;
 
   return (
@@ -58,6 +59,9 @@ const AddUser = () => {
               onBlur={handleBlur}
               value={values.taiKhoan}
             />
+            {errors.taiKhoan && touched.taiKhoan ? (
+              <p className="text-red-500 text-xs mt-1">{errors.taiKhoan}</p>
+            ) : null}
           </div>
           {/* Email */}
           <div>
@@ -76,6 +80,9 @@ const AddUser = () => {
               onBlur={handleBlur}
               value={values.email}
             />
+            {errors.email && touched.email ? (
+              <p className="text-red-500 text-xs mt-1">{errors.email}</p>
+            ) : null}
           </div>
           {/* Mật khẩu */}
           <div>
@@ -94,6 +101,9 @@ const AddUser = () => {
               onBlur={handleBlur}
               value={values.matKhau}
             />
+            {errors.matKhau && touched.matKhau ? (
+              <p className="text-red-500 text-xs mt-1">{errors.matKhau}</p>
+            ) : null}
           </div>
           {/* Số điện thoại */}
           <div>
@@ -112,6 +122,9 @@ const AddUser = () => {
               onBlur={handleBlur}
               value={values.soDt}
             />
+            {errors.soDt && touched.soDt ? (
+              <p className="text-red-500 text-xs mt-1">{errors.soDt}</p>
+            ) : null}
           </div>
           {/* Họ tên */}
           <div>
@@ -129,6 +142,9 @@ const AddUser = () => {
               onBlur={handleBlur}
               value={values.hoTen}
             />
+            {errors.hoTen && touched.hoTen ? (
+              <p className="text-red-500 text-xs mt-1">{errors.hoTen}</p>
+            ) : null}
           </div>
           {/* Loại người dùng */}
           <div>
@@ -153,24 +169,12 @@ const AddUser = () => {
                 <option value="KhachHang">Khách hàng</option>
                 <option value="QuanTri">Quản trị</option>
               </select>
+              {errors.maLoaiNguoiDung && touched.maLoaiNguoiDung ? (
+                <p className="text-red-500 text-xs mt-1">
+                  {errors.maLoaiNguoiDung}
+                </p>
+              ) : null}
             </div>
-          </div>
-          {/* Mã nhóm */}
-          <div>
-            <label
-              htmlFor="maNhom"
-              className="block mb-2 text-sm font-medium text-gray-900"
-            >
-              Mã nhóm
-            </label>
-            <input
-              type="text"
-              id="maNhom"
-              className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 "
-              onChange={handleChange}
-              onBlur={handleBlur}
-              value={values.maNhom}
-            />
           </div>
         </div>
         <div className="flex justify-between mt-16">
