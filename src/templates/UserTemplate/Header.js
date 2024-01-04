@@ -5,6 +5,13 @@ import { Link, NavLink } from "react-router-dom";
 const Header = () => {
   const { user } = useSelector((state) => state.userSlice);
   console.log(user);
+  const handleNavigate = () => {
+    const lichchieurapElement = document.getElementById("lichchieurap");
+
+    if (lichchieurapElement) {
+      lichchieurapElement.scrollIntoView({ behavior: "smooth" });
+    }
+  };
   return (
     <header className="bg-white">
       <nav
@@ -49,22 +56,14 @@ const Header = () => {
             Trang chủ
           </NavLink>
           <NavLink to={"/cum-rap"}>Cụm rạp</NavLink>
-          <NavLink to={"/"}>Tin tức</NavLink>
-          <NavLink
-            className={({ isActive, isPending }) => {
-              console.log(isActive);
-              return isActive ? "text-red-500" : "";
-            }}
-            to={"/ung-dung"}
-          >
-            Ứng dụng
+          <NavLink to={"/tin-tuc"}>Tin tức</NavLink>
+          <NavLink to={"/"} onClick={handleNavigate}>
+            Đặt vé
           </NavLink>
         </div>
         <div className="grid grid-cols-2">
           {/* Đăng nhập */}
-          <div
-            className="hidden lg:flex lg:flex-1 lg:justify-end items-center"
-          >
+          <div className="hidden lg:flex lg:flex-1 lg:justify-end items-center">
             {/* nếu người dùng chưa đăng nhập sẽ hiển thị login còn nếu đã đăng nhập sẽ hiển thị tên người dùng */}
             <div
               style={{
