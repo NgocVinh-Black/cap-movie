@@ -44,7 +44,7 @@ const UserManager = () => {
       key: "thaoTac",
       dataIndex: "taiKhoan",
       render: (text, record) => (
-        <div className="space-x-2">
+        <div className="space-x-2 xoa_sua">
           {/* Sửa */}
           <NavLink to={`/admin/edit-user/${text}`}>
             <button>
@@ -59,6 +59,7 @@ const UserManager = () => {
                 .then(() => {
                   userServ.getAllUser().then((res) => {
                     setListUser(res.data.content);
+                    setResFind(res.data.content);
                   });
                 })
                 .catch((err) => {

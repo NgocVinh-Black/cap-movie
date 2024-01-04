@@ -3,6 +3,7 @@ import { NavLink, useNavigate } from "react-router-dom";
 import { useFormik } from "formik";
 import { userServ } from "../../services/userServ";
 import { validationUser } from "../../utils/validationUser";
+import './responsiveAddUser.css'
 const AddUser = () => {
   const navigate = useNavigate();
   const formik = useFormik({
@@ -38,10 +39,10 @@ const AddUser = () => {
   } = formik;
 
   return (
-    <div className="px-20">
+    <div className="px-20 content_form">
       <h2 className="font-bold text-2xl mb-5">Thêm người dùng</h2>
       <form onSubmit={handleSubmit}>
-        <div className="grid grid-cols-2 gap-10">
+        <div className="grid grid-cols-2 gap-10 form_design">
           {/* Tài khoản */}
           <div>
             <label

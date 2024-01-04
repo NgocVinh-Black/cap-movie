@@ -9,7 +9,7 @@ import {
 import { Layout, Menu, Button, theme } from "antd";
 import { Link, Outlet, useLocation, useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
-
+import "./responsiveAdminTemplate.css";
 const AdminTemplate = () => {
   const { user } = useSelector((state) => state.userSlice);
   const [collapsed, setCollapsed] = useState(false);

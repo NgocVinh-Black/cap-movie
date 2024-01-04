@@ -3,7 +3,7 @@ import { quanLyPhimSer } from "../../services/quanLyPhimSer";
 import { Space, Table, Tag } from "antd";
 import { useDispatch, useSelector } from "react-redux";
 import { getAllMovieThunk } from "../../redux/slice/movieSlice";
-
+import './responsiveMovieManager.css'
 const MovieManager = () => {
   const dispatch = useDispatch();
   const { listMovie } = useSelector((state) => state.movieSlice);
@@ -45,7 +45,7 @@ const MovieManager = () => {
       key: "hanhDong",
       render: (_, record) => {
         return (
-          <div className="space-x-3">
+          <div className="space-x-3 xoa_sua">
             <button
               onClick={() => {
                 quanLyPhimSer

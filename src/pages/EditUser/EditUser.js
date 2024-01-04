@@ -53,10 +53,10 @@ const EditUser = () => {
     reset,
   } = formik;
   return (
-    <div className="px-20">
+    <div className="px-20 content_form">
       <h2 className="font-bold text-2xl mb-5">Thay đổi thông tin người dùng</h2>
       <form onSubmit={handleSubmit}>
-        <div className="grid grid-cols-2 gap-10">
+        <div className="grid grid-cols-2 gap-10 form_design">
           {/* Tài khoản */}
           <div>
             <label
