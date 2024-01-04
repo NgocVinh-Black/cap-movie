@@ -5,6 +5,8 @@ import DetailSeat from "./DetailSeat";
 import SeatList from "./SeatList";
 import "./Tickets.scss";
 import Loading from "../../components/Loading/Loading";
+import Footer from "../../templates/UserTemplate/Footer";
+import Header from "../../templates/UserTemplate/Header";
 
 const Tickets = () => {
   const { showtimeId } = useParams();
@@ -38,27 +40,31 @@ const Tickets = () => {
   }
 
   return (
-    <div className="tickets flex flex-col md:flex-row">
-      <div className="md:w-8/12">
-        <SeatList seatList={ticketsList.danhSachGhe} />
-        <div className="btnList flex flex-col md:flex-row space-y-2 md:space-y-0 md:space-x-2">
-          <div className="btnGroup flex items-center">
-            <button className="btnDisable btnItem">X</button>
-            <p>Đã đặt</p>
-          </div>
-          <div className="btnGroup flex items-center">
-            <button className="btnItem"></button>
-            <p>Thường</p>
-          </div>
-          <div className="btnGroup flex items-center">
-            <button className="btnVip btnItem"></button>
-            <p>Vip</p>
+    <div>
+      <Header />
+      <div className="tickets flex flex-col md:flex-row">
+        <div className="md:w-8/12">
+          <SeatList seatList={ticketsList.danhSachGhe} />
+          <div className="btnList flex flex-col md:flex-row space-y-2 md:space-y-0 md:space-x-2">
+            <div className="btnGroup flex items-center">
+              <button className="btnDisable btnItem">X</button>
+              <p>Đã đặt</p>
+            </div>
+            <div className="btnGroup flex items-center">
+              <button className="btnItem"></button>
+              <p>Thường</p>
+            </div>
+            <div className="btnGroup flex items-center">
+              <button className="btnVip btnItem"></button>
+              <p>Vip</p>
+            </div>
           </div>
         </div>
+        <div className="md:w-4/12">
+          <DetailSeat infoCinema={ticketsList.thongTinPhim} />
+        </div>
       </div>
-      <div className="md:w-4/12">
-        <DetailSeat infoCinema={ticketsList.thongTinPhim} />
-      </div>
+      <Footer />
     </div>
   );
 };

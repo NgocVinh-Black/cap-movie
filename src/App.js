@@ -15,6 +15,7 @@ import Register from "./pages/Register/Register";
 import Detail from "./pages/Detail/Detail";
 import AddUser from "./pages/AddUser/AddUser";
 import EditUser from "./pages/EditUser/EditUser";
+import NotFound from "./components/NotFound/NotFound";
 
 function App() {
   return (
@@ -35,6 +36,7 @@ function App() {
           <Route element={<Register />} path="/register"></Route>
           <Route element={<Detail />} path="/detail/:maPhim"></Route>
           <Route element={<Tickets />} path="/tickets/:showtimeId" />
+          <Route path="*" element={<NotFound />} />
         </Routes>
       </TicketProvider>
     </>

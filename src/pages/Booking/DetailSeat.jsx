@@ -17,6 +17,11 @@ const DetailSeat = ({ infoCinema }) => {
   }));
 
   const handleBookTickets = async () => {
+    if (selectSeats.length === 0) {
+      message.error("Vui lòng chọn ghế trước khi đặt vé.");
+      return;
+    }
+
     setIsLoading(true);
 
     try {
@@ -25,7 +30,7 @@ const DetailSeat = ({ infoCinema }) => {
         danhSachVe: listTickets,
       });
 
-      //handleBooking is a function to handle the booking process
+      // handleBooking is a function to handle the booking process
       handleBooking();
 
       message.success("Đặt vé thành công! Chúc mừng bạn!");
