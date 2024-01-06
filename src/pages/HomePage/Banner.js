@@ -71,12 +71,12 @@ const Banner = () => {
     quanLyPhimSer
       .getAllBanner()
       .then((res) => {
-        console.log(res);
+        // console.log(res);
         setListBanner(res.data.content);
         dispatch(endedLoading());
       })
       .catch((err) => {
-        console.log(err);
+        // console.log(err);
         dispatch(endedLoading());
       });
   }, []);
@@ -90,7 +90,7 @@ const Banner = () => {
         return (
           <div key={index}>
             <img
-              className="w-full h-[800px] object-cover"
+              className="w-full object-cover lg:h-[800px] md:h-[600px] h-[400px]"
               src={item.hinhAnh}
               alt=""
             />

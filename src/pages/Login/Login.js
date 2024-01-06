@@ -35,8 +35,19 @@ const Login = () => {
             saveLocalStore(res.data.content, "user_info");
             dispatch(saveInfoUser(res.data.content));
             // chuyển hướng người dùng tới trang chủ
+            // setTimeout(() => {
+            //   navigate("/");
+            // }, 1000);
+
+            // Redirect after successful login
+            const redirectTo = new URLSearchParams(location.search).get(
+              "redirectTo"
+            );
+            const redirectPath = redirectTo
+              ? decodeURIComponent(redirectTo)
+              : "/";
             setTimeout(() => {
-              navigate("/");
+              navigate(redirectPath);
             }, 1000);
           })
           .catch((err) => {

@@ -5,8 +5,24 @@ export default function ButtonTime({ movieTime }) {
   const time = dayjs(movieTime.ngayChieuGioChieu).format("DD-MM-YYYY ~ HH:mm");
 
   return (
-    <button className="bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded">
-      {time}
-    </button>
+    <p
+      style={{
+        padding: "8px",
+        textAlign: "center",
+        duration: "300ms",
+        backgroundColor: "#f0f0f0",
+        border: "1px solid #ccc",
+        borderRadius: "0.375rem",
+        cursor: "pointer",
+      }}
+      className="hover:bg-gray-200 focus:bg-gray-200 focus:outline-none"
+    >
+      <span
+        style={{ marginRight: "8px", fontWeight: "500", color: "#38a169" }}
+        className="text-base hover:text-base focus:text-base"
+      >
+        {time}
+      </span>
+    </p>
   );
 }

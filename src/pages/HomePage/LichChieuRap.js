@@ -19,7 +19,10 @@ const LichChieuRap = () => {
   }, []);
 
   return (
-    <div id="lichchieurap" className="max-w-screen-xl mx-auto mb-16">
+    <div
+      id="lichchieurap"
+      className="max-w-screen-xl mx-auto mb-16 px-4 sm:px-6"
+    >
       <h2 className="text-3xl font-bold mb-7">Hệ thống rạp phim</h2>
       <Tabs
         defaultActiveKey="1"

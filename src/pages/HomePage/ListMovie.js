@@ -23,7 +23,7 @@ const ListMovie = () => {
   }, []);
 
   return (
-    <div className="max-w-screen-xl py-10 mx-auto px-12 lg:px-0">
+    <div className="max-w-screen-xl py-10 mx-auto px-4 lg:px-12 md:px-8 sm:px-6">
       <h2 className="text-3xl font-bold mb-7">Danh sách phim</h2>
       <div className="grid lg:grid-cols-4 gap-7 md:grid-cols-2 grid-cols-1">
         {/* Movie Item */}
@@ -53,11 +53,7 @@ const ListMovie = () => {
                 to={`/detail/${item.maPhim}`}
                 className="inline-block w-full mt-3"
               >
-                <Button
-                  type="primary"
-                  danger
-                  className="w-full h-10 text-lg"
-                >
+                <Button type="primary" danger className="w-full h-10 text-lg">
                   Xem Ngay
                 </Button>
               </NavLink>
