@@ -4,7 +4,7 @@ import { useDispatch } from "react-redux";
 import { NavLink } from "react-router-dom";
 import { endedLoading, startedLoading } from "../../redux/slice/loadingSlice";
 import { quanLyPhimSer } from "../../services/quanLyPhimSer";
-
+import "./responsiveListTab.css";
 const ListMovie = () => {
   const [movie, setMovie] = useState([]);
   const dispatch = useDispatch();
@@ -53,11 +53,7 @@ const ListMovie = () => {
                 to={`/detail/${item.maPhim}`}
                 className="inline-block w-full mt-3"
               >
-                <Button
-                  type="primary"
-                  danger
-                  className="w-full h-10 text-lg"
-                >
+                <Button type="primary" danger className="w-full h-10 text-lg">
                   Xem Ngay
                 </Button>
               </NavLink>
