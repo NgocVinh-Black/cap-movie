@@ -7,6 +7,8 @@ import { useSelector, useDispatch } from "react-redux";
 import { useParams } from "react-router-dom";
 import "./detail.css";
 import { Rate } from "antd";
+import moment from "moment";
+import './responsiveDetail.css'
 const Detail = () => {
   const { maPhim } = useParams();
   const [detailMovie, setDetailMovie] = useState([]);
@@ -16,16 +18,15 @@ const Detail = () => {
       .then((res) => {
         setDetailMovie(res.data.content);
       })
-      .catch((err) => {
-      });
+      .catch((err) => {});
   }, []);
   return (
     <div>
       <Header />
       <div className="bg_detail">
-        <div
+        <div className="content_detail"
           style={{
-            padding: "50px 300px",
+            padding: "50px 100px",
           }}
         >
           <div className="flex">
@@ -84,7 +85,10 @@ const Detail = () => {
                 <p>Bình thường</p>
               )}
               {detailMovie.dangChieu ? <p>Đang chiếu</p> : <p>Đang cập nhập</p>}
-              <p>{detailMovie.ngayKhoiChieu}</p>
+              <p>
+                Ngày khởi chiếu:{" "}
+                {moment(detailMovie.ngayKhoiChieu).format("DD-MM-YYYY")}
+              </p>
               <div>
                 <p>Đánh giá</p>
                 <Rate allowHalf value={detailMovie.danhGia} />
