@@ -4,7 +4,7 @@ import { useDispatch } from "react-redux";
 import { NavLink } from "react-router-dom";
 import { endedLoading, startedLoading } from "../../redux/slice/loadingSlice";
 import { quanLyPhimSer } from "../../services/quanLyPhimSer";
-
+import "./responsiveListTab.css";
 const ListMovie = () => {
   const [movie, setMovie] = useState([]);
   const dispatch = useDispatch();
