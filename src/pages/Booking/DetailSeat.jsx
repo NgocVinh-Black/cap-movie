@@ -4,12 +4,15 @@ import "./DetailSeat.scss";
 import { useTicketContext } from "./TicketsContext";
 import { bookTickets } from "../../services/quanlyticket";
 import Loading from "../../components/Loading/Loading";
+import BookingSuccessModal from "./BookingSuccessModal";
 
 const DetailSeat = ({ infoCinema }) => {
   console.log("infoCinema:", infoCinema);
 
   const { totalPrice, selectSeats, handleBooking } = useTicketContext();
   const [isLoading, setIsLoading] = useState(false);
+
+  const [isModalVisible, setIsModalVisible] = useState(false);
 
   const listTickets = selectSeats.map((seat) => ({
     maGhe: seat.maGhe,
@@ -33,7 +36,8 @@ const DetailSeat = ({ infoCinema }) => {
       // handleBooking is a function to handle the booking process
       handleBooking();
 
-      message.success("Đặt vé thành công! Chúc mừng bạn!");
+      // message.success("Đặt vé thành công! Chúc mừng bạn!");
+      setIsModalVisible(true);
     } catch (error) {
       // Handle error (e.g., display an error message)
       console.error("Error booking tickets:", error);
@@ -54,6 +58,11 @@ const DetailSeat = ({ infoCinema }) => {
   if (isLoading) {
     return <Loading />;
   }
+
+  // Function to handle modal close
+  const handleModalClose = () => {
+    setIsModalVisible(false);
+  };
 
   return (
     <div className="detailtickets">
@@ -90,6 +99,16 @@ const DetailSeat = ({ infoCinema }) => {
           <span className="inline-block align-middle">ĐẶT VÉ</span>
         </Button>
       </div>
+
+      <BookingSuccessModal
+        open={isModalVisible}
+        onCancel={handleModalClose}
+        bookingInfo={{
+          tenPhim: infoCinema?.tenPhim,
+          ngayChieu: infoCinema?.ngayChieu,
+          tenRap: infoCinema?.tenRap,
+        }}
+      />
     </div>
   );
 };

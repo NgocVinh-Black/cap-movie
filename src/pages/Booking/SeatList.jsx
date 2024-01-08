@@ -15,7 +15,7 @@ export default function SeatList({ seatList }) {
 
   return (
     <div className="seatlist">
-      <div className="max-w-md mx-auto">
+      <div className="mx-auto">
         <h6 className="screen">MÀN HÌNH</h6>
         <div className="seatlistContent">
           {seatList?.map((seat) => {

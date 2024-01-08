@@ -22,31 +22,25 @@ import UserProvider from "./pages/Booking/UserContext";
 function App() {
   return (
     <>
-      <UserProvider>
-        <TicketProvider>
-          <Routes>
-            <Route element={<UserTemplate />} path="/">
-              <Route element={<HomePage />} index></Route>
-            </Route>
-            <Route element={<AdminTemplate />} path="/admin">
-              <Route index element={<MovieManager />} />
-              <Route path="manager-user" element={<UserManager />} />
-              <Route path="add-movie" element={<AddMovie />} />
-              <Route path="add-user" element={<AddUser />} />
-              <Route path="edit-user/:taiKhoan" element={<EditUser />} />
-            </Route>
-            <Route element={<Login />} path="/login"></Route>
-            <Route element={<Register />} path="/register"></Route>
-            <Route element={<Detail />} path="/detail/:maPhim"></Route>
-
-            <Route element={<ProtectedRoute />}>
-              <Route element={<Tickets />} path="tickets/:showtimeId" />
-            </Route>
-
-            <Route path="*" element={<NotFound />} />
-          </Routes>
-        </TicketProvider>
-      </UserProvider>
+      <TicketProvider>
+        <Routes>
+          <Route element={<UserTemplate />} path="/">
+            <Route element={<HomePage />} index></Route>
+          </Route>
+          <Route element={<AdminTemplate />} path="/admin">
+            <Route index element={<MovieManager />} />
+            <Route path="manager-user" element={<UserManager />} />
+            <Route path="add-movie" element={<AddMovie />} />
+            <Route path="add-user" element={<AddUser />} />
+            <Route path="edit-user/:taiKhoan" element={<EditUser />} />
+          </Route>
+          <Route element={<Login />} path="/login"></Route>
+          <Route element={<Register />} path="/register"></Route>
+          <Route element={<Detail />} path="/detail/:maPhim"></Route>
+          <Route element={<Tickets />} path="tickets/:showtimeId" />
+          <Route path="*" element={<NotFound />} />
+        </Routes>
+      </TicketProvider>
     </>
   );
 }
