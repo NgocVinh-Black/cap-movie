@@ -8,4 +8,4 @@ Vinh:
 Huệ Anh:
   - trang đặt vé, trang 404 (có responsive)
   - hoàn thành list movie trang home, responsive banner và listmovie
-  - back to top
+  - back to top, khuyến mãi trang home (có responsive)
