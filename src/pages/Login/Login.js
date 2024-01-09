@@ -9,7 +9,7 @@ import { saveLocalStore } from "../../utils/local";
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { saveInfoUser, setAuthenticated } from "../../redux/slice/userSlice";
-
+import './responsiveLogin.css'
 const Login = () => {
   const dispatch = useDispatch();
   const [messageApi, contextHolder] = message.useMessage();
@@ -67,7 +67,7 @@ const Login = () => {
       {contextHolder}
       <div className="h-screen flex justify-center items-center">
         <div className="container">
-          <div className="grid grid-cols-2">
+          <div className="grid grid-cols-2 content_login">
             <div className="col_left">
               <Lottie options={defaultOptions} height={400} width={400} />
             </div>
