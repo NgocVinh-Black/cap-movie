@@ -21,6 +21,9 @@ const userSlice = createSlice({
     saveInfoUser: (state, action) => {
       state.user = action.payload;
     },
+    setAuthenticated: (state, action) => {
+      state.isAuthenticated = action.payload;
+    },
   },
 });
 

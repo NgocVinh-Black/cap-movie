@@ -8,7 +8,7 @@ import { message } from "antd";
 import { saveLocalStore } from "../../utils/local";
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
-import { saveInfoUser } from "../../redux/slice/userSlice";
+import { saveInfoUser, setAuthenticated } from "../../redux/slice/userSlice";
 
 const Login = () => {
   const dispatch = useDispatch();
