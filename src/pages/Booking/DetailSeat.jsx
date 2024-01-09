@@ -5,6 +5,7 @@ import { useTicketContext } from "./TicketsContext";
 import { bookTickets } from "../../services/quanlyticket";
 import Loading from "../../components/Loading/Loading";
 import BookingSuccessModal from "./BookingSuccessModal";
+import { useSelector } from "react-redux";
 
 const DetailSeat = ({ infoCinema }) => {
   console.log("infoCinema:", infoCinema);
@@ -19,7 +20,17 @@ const DetailSeat = ({ infoCinema }) => {
     giaVe: seat.giaVe,
   }));
 
+  // const isAuthenticated = useSelector((state) => state.user.isAuthenticated);
+
   const handleBookTickets = async () => {
+    // if (!isAuthenticated) {
+    //   // Show a message or redirect to the login page
+    //   message.warning("Vui lòng đăng nhập để đặt vé.");
+    //   // Or redirect to the login page
+    //   // navigate("/login");
+    //   return;
+    // }
+
     if (selectSeats.length === 0) {
       message.error("Vui lòng chọn ghế trước khi đặt vé.");
       return;
@@ -36,7 +47,6 @@ const DetailSeat = ({ infoCinema }) => {
       // handleBooking is a function to handle the booking process
       handleBooking();
 
-      // message.success("Đặt vé thành công! Chúc mừng bạn!");
       setIsModalVisible(true);
     } catch (error) {
       // Handle error (e.g., display an error message)
