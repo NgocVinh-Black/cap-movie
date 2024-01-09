@@ -1,0 +1,17 @@
+/* SlidePromotion.scss */
+
+
+  
+  .slideItem {
+    width: 100%;
+    border-radius: 15px; // Set border radius for each slide
+    overflow: hidden; // Ensure images within the slide respect the border radius
+  
+    .slideImg {
+      max-width: 100%;
+      border-radius: 15px; // Set border radius for images
+      margin-bottom: 50px;
+      display: block; // Ensure images are treated as block elements
+    }
+  }
+  
