@@ -5,5 +5,5 @@ Vinh:
   - responsive trang home (header, tab lịch chiếu) 
 
 Huệ Anh:
-  - trang đặt vé, trang 404
-  - hoàn thành list movie trang home
+  - trang đặt vé, trang 404, responsive
+  - hoàn thành list movie trang home, responsive banner, listmovie
