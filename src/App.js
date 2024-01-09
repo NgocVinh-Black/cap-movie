@@ -1,4 +1,4 @@
-import { DatePicker } from "antd";
+// import { DatePicker } from "antd";
 
 // react-router-dom
 import { Route, Routes } from "react-router-dom";
@@ -16,8 +16,6 @@ import Detail from "./pages/Detail/Detail";
 import AddUser from "./pages/AddUser/AddUser";
 import EditUser from "./pages/EditUser/EditUser";
 import NotFound from "./components/NotFound/NotFound";
-import ProtectedRoute from "./components/Routers/ProtectedRoute/ProtectedRoute";
-import UserProvider from "./pages/Booking/UserContext";
 
 function App() {
   return (

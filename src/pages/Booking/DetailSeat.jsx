@@ -5,7 +5,6 @@ import { useTicketContext } from "./TicketsContext";
 import { bookTickets } from "../../services/quanlyticket";
 import Loading from "../../components/Loading/Loading";
 import BookingSuccessModal from "./BookingSuccessModal";
-import { useSelector } from "react-redux";
 
 const DetailSeat = ({ infoCinema }) => {
   console.log("infoCinema:", infoCinema);
@@ -39,10 +38,12 @@ const DetailSeat = ({ infoCinema }) => {
     setIsLoading(true);
 
     try {
-      await bookTickets({
+      const response = await bookTickets({
         maLichChieu: infoCinema.maLichChieu,
         danhSachVe: listTickets,
       });
+
+      console.log("Booking response:", response);
 
       // handleBooking is a function to handle the booking process
       handleBooking();
@@ -51,7 +52,9 @@ const DetailSeat = ({ infoCinema }) => {
     } catch (error) {
       // Handle error (e.g., display an error message)
       console.error("Error booking tickets:", error);
-      message.error("Đã có lỗi xảy ra khi đặt vé. Vui lòng thử lại!");
+      message.error(
+        "Đã có lỗi xảy ra khi đặt vé. Vui lòng đăng nhập trước khi đặt vé!"
+      );
     } finally {
       setIsLoading(false);
     }
