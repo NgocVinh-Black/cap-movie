@@ -91,7 +91,7 @@ const Detail = () => {
               </p>
               <div>
                 <p>Đánh giá</p>
-                <Rate allowHalf value={detailMovie.danhGia} />
+                <Rate disabled value={detailMovie.danhGia} />
               </div>
             </div>
           </div>
