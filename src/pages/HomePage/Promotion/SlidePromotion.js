@@ -15,22 +15,22 @@ export default function SlideMovie() {
     <img
       alt=""
       className="slideImg"
-      src="https://www.bhdstar.vn/wp-content/uploads/2023/08/MUACBLONTANGCBNHO-KA-1920X1080.png"
+      src={`${process.env.PUBLIC_URL}/img/happyday.png`}
     />,
     <img
       alt=""
       className="slideImg"
-      src="https://www.bhdstar.vn/wp-content/uploads/2018/03/U22-web-1.png"
+      src={`${process.env.PUBLIC_URL}/img/Rectangle-19.png`}
     />,
     <img
       alt=""
       className="slideImg"
-      src="https://www.bhdstar.vn/wp-content/uploads/2018/03/Web-HappyDay.png"
+      src={`${process.env.PUBLIC_URL}/img/Rectangle-21.png`}
     />,
     <img
       alt=""
       className="slideImg"
-      src="https://www.bhdstar.vn/wp-content/uploads/2018/03/Suat-Khuya-Web.jpg"
+      src={`${process.env.PUBLIC_URL}/img/Rectangle-18.png`}
     />,
   ];
   return (
@@ -44,7 +44,7 @@ export default function SlideMovie() {
         style={{
           "--swiper-pagination-bullet-size": "16px",
           "--swiper-pagination-color": "#45ab3c",
-          background: "#040404",
+          background: "#FFFFFF",
         }}
         breakpoints={{
           576: {
